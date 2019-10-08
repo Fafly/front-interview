@@ -8,7 +8,7 @@ class Post extends PureComponent {
       <div>
         <h3>{title}</h3>
         <p>{text}</p>
-        <img src={`/static/${src}`} alt="image of post" />
+        <img src={src} alt="image of post" />
         { !isNaN(date) && (
           <p>{`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}</p>
         )}

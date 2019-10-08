@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 
-const URL_GET_POSTS = 'https://upply-interview.herokuapp.com/';
+const URL_API = 'https://upply-interview.herokuapp.com/';
 
 class Blog extends PureComponent {
   state = {
@@ -26,11 +26,12 @@ class Blog extends PureComponent {
   }
 
   getPosts = () => {
-    fetch(URL_GET_POSTS)
+    fetch(URL_API)
       .then(response => response.json())
       .then(posts => {
         const formatPosts = posts.map(post => ({
           ...post,
+          src: `${URL_API}images/${post.src}`,
           date: new Date(post.date)
         }));
         this.setState({
